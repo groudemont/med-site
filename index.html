@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Горный мёд</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600&display=swap');
+
+:root {
+    --cream: #f5f1e7;
+    --cream-light: #fbfaf6;
+    --green: #506b4c;
+    --green-dark: #273d2b;
+    --brown: #705c43;
+    --text: #263128;
+    --muted: #74796f;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background: var(--cream-light);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 24px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Manrope", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    color: white;
+    font-size: 14px;
+}
+
+nav a {
+    opacity: .9;
+    transition: .2s;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 720px;
+    height: 88vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(25,42,27,.76), rgba(25,42,27,.18)),
+        url("https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+}
+
+.hero-content {
+    width: min(1440px, 90%);
+    margin: auto;
+    color: white;
+}
+
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: .85;
+}
+
+.hero h1 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 500;
+    line-height: .96;
+    max-width: 900px;
+    letter-spacing: -4px;
+}
+
+.hero p {
+    max-width: 510px;
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: .92;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 36px;
+    padding: 16px 28px;
+    border-radius: 40px;
+    background: white;
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform .25s, background .25s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #f1eee5;
+}
+
+/* INTRO */
+
+.intro {
+    padding: 120px 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.intro h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.1;
+    font-weight: 500;
+    max-width: 850px;
+    letter-spacing: -2px;
+}
+
+.intro p {
+    margin-top: 28px;
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* PRODUCTS */
+
+.products {
+    background: var(--cream);
+    padding: 100px 5%;
+}
+
+.section-title {
+    max-width: 1440px;
+    margin: 0 auto 55px;
+}
+
+.section-title h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+.product-grid {
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--cream-light);
+    border-radius: 30px;
+    padding: 40px;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card-number {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.card h3 {
+    font-family: "Manrope", sans-serif;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.card .price {
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.order-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 22px;
+    border-radius: 40px;
+    background: var(--green);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.order-button:hover {
+    background: var(--green-dark);
+}
+
+/* FEATURES */
+
+.features {
+    padding: 120px 5%;
+    background: var(--cream-light);
+}
+
+.features-grid {
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    padding: 20px 10px;
+}
+
+.feature-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #dce3d6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
+.feature h3 {
+    font-family: "Manrope", sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.feature p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 14px;
+    max-width: 330px;
+}
+
+/* ORDER */
+
+.order {
+    padding: 120px 5%;
+    background: var(--green-dark);
+    color: white;
+}
+
+.order-inner {
+    max-width: 900px;
+    margin: auto;
+}
+
+.order h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(42px, 6vw, 75px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -3px;
+}
+
+.order p {
+    margin-top: 20px;
+    opacity: .7;
+}
+
+form {
+    margin-top: 50px;
+    display: grid;
+    gap: 14px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.08);
+    color: white;
+    padding: 17px 18px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+select option {
+    color: black;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit {
+    border: none;
+    padding: 17px;
+    border-radius: 40px;
+    background: white;
+    color: var(--green-dark);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 5%;
+    background: #18271b;
+    color: rgba(255,255,255,.55);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 20px 6%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 650px;
+        height: 90vh;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .intro,
+    .products,
+    .features,
+    .order {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .product-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 330px;
+    }
+
+    .features-grid {
+        gap: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ГОРНЫЙ МЁД</div>
+
+    <nav>
+        <a href="#about">О мёде</a>
+        <a href="#products">Мёд</a>
+        <a href="#order">Заказать</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">Натуральный продукт · Горы · Природа</div>
+
+        <h1>
+            Мёд, который<br>
+            начинается с гор.
+        </h1>
+
+        <p>
+            Натуральный горный мёд — вкус природы,
+            собранный там, где чистый воздух встречается
+            с цветущими горными лугами.
+        </p>
+
+        <a class="button" href="#products">
+            Выбрать мёд →
+        </a>
+
+    </div>
+
+</section>
+
+<section class="intro" id="about">
+
+    <h2>
+        Простота природы.
+        Настоящий вкус.
+    </h2>
+
+    <p>
+        Мы ценим натуральность и стараемся сохранить
+        то, что дала природа. Без лишнего — только
+        настоящий мёд и его естественный вкус.
+    </p>
+
+</section>
+
+<section class="products" id="products">
+
+    <div class="section-title">
+        <h2>Выберите объём</h2>
+        <p>Найдите подходящий вариант для себя или в подарок.</p>
+    </div>
+
+    <div class="product-grid">
+
+        <div class="card">
+            <div class="card-number">01 / 03</div>
+
+            <div>
+                <h3>1 литр</h3>
+                <div class="price">1 500 ₽</div>
+                <p>Для дома и знакомства с нашим мёдом.</p>
+            </div>
+
+            <a class="order-button" href="#order">Заказать</a>
+        </div>
+
+        <div class="card">
+            <div class="card-number">02 / 03</div>
+
+            <div>
+                <h3>2 литра</h3>
+                <div class="price">3 000 ₽</div>
+                <p>Оптимальный объём для всей семьи.</p>
+            </div>
+
+            <a class="order-button" href="#order">Заказать</a>
+        </div>
+
+        <div class="card">
+            <div class="card-number">03 / 03</div>
+
+            <div>
+                <h3>3 литра</h3>
+                <div class="price">5 000 ₽</div>
+                <p>Большой запас настоящего горного мёда.</p>
+            </div>
+
+            <a class="order-button" href="#order">Заказать</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="features-grid">
+
+        <div class="feature">
+            <div class="feature-icon">🌿</div>
+            <h3>Натуральный</h3>
+            <p>
+                Без лишних добавок. Только продукт,
+                который создала природа.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⛰️</div>
+            <h3>Горный</h3>
+            <p>
+                Мёд с особенным вкусом, связанным
+                с горными цветами и природой.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🍯</div>
+            <h3>Настоящий вкус</h3>
+            <p>
+                Бережно сохраняем естественный
+                аромат и вкус мёда.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="order" id="order">
+
+    <div class="order-inner">
+
+        <h2>Хотите заказать?</h2>
+
+        <p>
+            Заполните форму. После подключения почты
+            заявка будет автоматически отправляться нам.
+        </p>
+
+        <form id="orderForm">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Ваше имя"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Ваш email"
+                required
+            >
+
+            <select name="product" required>
+                <option value="">Выберите объём</option>
+                <option value="1 литр — 1500 ₽">1 литр — 1500 ₽</option>
+                <option value="2 литра — 3000 ₽">2 литра — 3000 ₽</option>
+                <option value="3 литра — 5000 ₽">3 литра — 5000 ₽</option>
+            </select>
+
+            <textarea
+                name="message"
+                placeholder="Комментарий к заказу"
+            ></textarea>
+
+            <button class="submit" type="submit">
+                Отправить заказ →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Горный мёд
+</footer>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    alert("Форма пока работает в демонстрационном режиме. Почту подключим следующим шагом.");
+});
+</script>
+
+</body>
+</html>
