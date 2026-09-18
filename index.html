@@ -6,7 +6,69 @@
 
 <title>Горный мёд</title>
 
-<style>
+<style>.volume-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+    opacity: .7;
+}
+
+.volume-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.volume-option {
+    cursor: pointer;
+}
+
+.volume-option input {
+    display: none;
+}
+
+.volume-option span {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.06);
+    border-radius: 16px;
+    transition: .2s;
+}
+
+.volume-option strong {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.volume-option small {
+    font-size: 13px;
+    opacity: .65;
+}
+
+.volume-option input:checked + span {
+    background: white;
+    color: var(--green-dark);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.volume-option span:hover {
+    border-color: rgba(255,255,255,.55);
+}
+
+@media (max-width: 600px) {
+    .volume-options {
+        grid-template-columns: 1fr;
+    }
+
+    .volume-option span {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600&display=swap');
 
 :root {
@@ -586,12 +648,35 @@ footer {
                 required
             >
 
-            <select name="product" required>
-                <option value="">Выберите объём</option>
-                <option value="1 литр — 1500 ₽">1 литр — 1500 ₽</option>
-                <option value="2 литра — 3000 ₽">2 литра — 3000 ₽</option>
-                <option value="3 литра — 5000 ₽">3 литра — 5000 ₽</option>
-            </select>
+            <div class="volume-title">Выберите объём</div>
+
+<div class="volume-options">
+
+    <label class="volume-option">
+        <input type="radio" name="product" value="1 литр — 1500 ₽" required>
+        <span>
+            <strong>1 литр</strong>
+            <small>1 500 ₽</small>
+        </span>
+    </label>
+
+    <label class="volume-option">
+        <input type="radio" name="product" value="2 литра — 3000 ₽">
+        <span>
+            <strong>2 литра</strong>
+            <small>3 000 ₽</small>
+        </span>
+    </label>
+
+    <label class="volume-option">
+        <input type="radio" name="product" value="3 литра — 5000 ₽">
+        <span>
+            <strong>3 литра</strong>
+            <small>5 000 ₽</small>
+        </span>
+    </label>
+
+</div>
 
             <textarea
                 name="message"
